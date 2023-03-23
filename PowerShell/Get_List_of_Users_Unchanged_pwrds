@@ -1,0 +1,6 @@
+#Returns a list of user's who haven't changed their passwords in the last X days
+
+$today = Get-Date
+$DaysAgo = $today.AddDays(-180)
+Get-ADUser -Filter "Enabled -eq 'True' -and passwordlastset –lt
+'$DaysAgo'"
